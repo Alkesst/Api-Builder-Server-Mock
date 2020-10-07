@@ -117,3 +117,6 @@ dist
 
 desktop.ini
 .idea/
+dist/
+*.js
+*.js.map
