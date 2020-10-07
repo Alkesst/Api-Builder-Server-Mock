@@ -1,1 +1,0 @@
-{"version":3,"file":"PingController.js","sourceRoot":"","sources":["PingController.ts"],"names":[],"mappings":";;;;;;;;;;;;AAEA;;GAEG;AACH,SAAsB,cAAc,CAAC,OAAgB,EAAE,QAAkB;;QAErE,QAAQ,CAAC,SAAS,CAAC,cAAc,EAAE,kBAAkB,CAAC,CAAC;QACvD,QAAQ,CAAC,IAAI,CAAC,IAAI,CAAC,SAAS,CAAC;YACzB,QAAQ,EAAE,0BAA0B;SACvC,CAAC,CAAC,CAAC;IACR,CAAC;CAAA;AAND,wCAMC"}
