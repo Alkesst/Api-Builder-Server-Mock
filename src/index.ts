@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 // register all application routes
 AppRoutes.forEach(route => {
-    app[route.method](route.path, (request: Request, response: Response, next: Function) => {
+    app[route.method](`/api${route.path}`, (request: Request, response: Response, next: Function) => {
         route.action(request, response)
             .then(() => next)
             .catch(err => next(err));
@@ -22,6 +22,6 @@ AppRoutes.forEach(route => {
 });
 
 // run app
-app.listen(3000);
+app.listen(4000);
 
-console.log("Express application is up and running on port 3000");
+console.log("Express application is up and running on port 4000");
