@@ -23,11 +23,12 @@
     "typescript": "^3.3.3333"
   },
   "dependencies": {
+    "api-builder-types": "file:../api-builder-types",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "reflect-metadata": "^0.1.13"
   },
   "scripts": {
-    "start": "tsc && node src/index.js"
+    "start": "tsc && node ./dist/index.js"
   }
 }

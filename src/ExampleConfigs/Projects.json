@@ -1,0 +1,28 @@
+{
+  "Projects": [
+    {
+      "Identifier": "8e6ebb76-a40b-4118-b2f4-9a9ab2bfc526",
+      "Name": "Test Project 1",
+      "Type": "Relational",
+      "Description": "Some project tests made for the API Builder Server Mock. This will help us with the development"
+    },
+    {
+      "Identifier": "2d2df8b3-4de7-4ec9-9d96-cf47d9fb2d74",
+      "Name": "Test Project 2",
+      "Type": "NoRelational",
+      "Description": "Some project tests made for the API Builder Server Mock. This will help us with the development"
+    },
+    {
+      "Identifier": "41b8af67-286f-4184-ac52-37f6fc05b277",
+      "Name": "Test Project 3",
+      "Type": "NoRelational",
+      "Description": "Some project tests made for the API Builder Server Mock. This will help us with the development"
+    },
+    {
+      "Identifier": "f323eecf-5c30-4d54-9e39-f674c3e8f6d5",
+      "Name": "Test Project 4",
+      "Type": "Relational",
+      "Description": "Some project tests made for the API Builder Server Mock. This will help us with the development"
+    }
+  ]
+}
