@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-const fs = require("fs").promises;
+const fs = require('fs').promises;
 
 /**
  * Loads all posts from the database.
@@ -8,7 +8,7 @@ const fs = require("fs").promises;
 export const ping = async (request: Request, response: Response) => {
     response.setHeader('Content-type', 'application/json');
     response.send(JSON.stringify({
-        Response: "Server alive and working"
+        Response: 'Server alive and working',
     }));
 };
 
@@ -19,7 +19,7 @@ export const getProjects = async (request: Request, response: Response) => {
         const jsonToSend = JSON.parse(rawDataString);
         response.send(jsonToSend);
     }).catch((error) => {
-        const jsonToSend = JSON.stringify({ "ERROR": error});
+        const jsonToSend = JSON.stringify({ ERROR: error });
         response.status(500).send(jsonToSend);
     });
 };
