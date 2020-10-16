@@ -1,17 +1,19 @@
-import { ping, getProjects } from "./controller/MockController";
+import { ping, getProjects } from './controller/MockController';
 
 /**
  * All application routes.
  */
-export const AppRoutes = [
+const AppRoutes = [
     {
-        path: "/ping",
-        method: "get",
-        action: ping
+        path: '/ping',
+        method: 'get',
+        action: ping,
     },
     {
-        path: "/projects",
-        method: "get",
-        action: getProjects
-    }
+        path: '/projects',
+        method: 'get',
+        action: getProjects,
+    },
 ];
+
+export default AppRoutes;
