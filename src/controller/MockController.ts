@@ -1,26 +1,28 @@
 import { Request, Response } from 'express';
-import { Project } from 'api-builder-types';
-
-const fs = require('fs').promises;
+import { promises as fs } from 'fs';
+import { Projects } from "../Types/projects";
 
 /**
  * Loads all posts from the database.
  */
 export const ping = async (request: Request, response: Response) => {
-    response.setHeader('Content-type', 'application/json');
-    response.send(JSON.stringify({
+    response.json({
         Response: 'Server alive and working',
-    }));
+    });
+};
+
+export const provideToken = (request: Request, response: Response) => {
+    response.json({userToken: 'Un token que la verdad no esperarías que fuera un token'});
+    return Promise.resolve();
 };
 
 export const getProjects = async (request: Request, response: Response) => {
-    response.setHeader('Content-type', 'application/json');
-    await fs.readFile('./src/ExampleConfigs/Projects.json').then((rawData: Buffer) => {
-        const rawDataString = rawData.toString();
-        const jsonToSend: Project[] = JSON.parse(rawDataString).Projects;
-        response.send(jsonToSend);
-    }).catch((error) => {
-        const jsonToSend = JSON.stringify({ ERROR: error });
-        response.status(500).send(jsonToSend);
-    });
+    const projectsJson = await readJson<Projects>('./src/ExampleConfigs/Projects.json');
+    response.json(projectsJson.Projects);
+};
+
+const readJson = async<T> (filePath: string): Promise<T> => {
+    const rawData = await fs.readFile(filePath);
+    const rawDataStringified = rawData.toString('utf-8');
+    return JSON.parse(rawDataStringified);
 };
