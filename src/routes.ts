@@ -1,4 +1,4 @@
-import {ping, getProjects, provideToken} from './controller/MockController';
+import {ping, getProjects, provideToken, userInfo} from './controller/MockController';
 
 /**
  * All application routes.
@@ -18,6 +18,10 @@ const AppRoutes = [
         path: '/token/get',
         method: 'post',
         action: provideToken
+    }, {
+        path: '/users/info',
+        method: 'get',
+        action: userInfo
     }
 ];
 

@@ -12,6 +12,7 @@ export const ping = async (request: Request, response: Response) => {
 };
 
 export const provideToken = (request: Request, response: Response) => {
+    request.user = {name: 'Jose Miguel'};
     response.json({userToken: 'Un token que la verdad no esperarías que fuera un token'});
     return Promise.resolve();
 };
@@ -25,4 +26,9 @@ const readJson = async<T> (filePath: string): Promise<T> => {
     const rawData = await fs.readFile(filePath);
     const rawDataStringified = rawData.toString('utf-8');
     return JSON.parse(rawDataStringified);
+};
+
+export const userInfo = async (request: Request, response: Response) => {
+    console.log(request.user);
+    response.json(request.user);
 };
