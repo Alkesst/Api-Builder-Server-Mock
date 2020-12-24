@@ -32,8 +32,7 @@ app.use(session({secret: 'Jose'}));
 MockStrategy.connectPassport(app, passport);
 
 app.get('/api/login', passport.authenticate('LoginMock', {session: true}), (req, res) => {
-    req.session.userToken = 'Tolkien inesperado?';
-    res.json(true);
+    res.json({token: 'Tolkien inesperado?'});
 });
 
 // register all application routes
