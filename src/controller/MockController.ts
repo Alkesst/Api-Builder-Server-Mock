@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { promises as fs } from 'fs';
 import { Projects } from "../Types/projects";
+import {IProjectConfig} from "api-builder-types";
 
 /**
  * Loads all posts from the database.
@@ -31,4 +32,9 @@ const readJson = async<T> (filePath: string): Promise<T> => {
 export const userInfo = async (request: Request, response: Response) => {
     console.log(request.user);
     response.json(request.user);
+};
+
+export const getEntities = async (request: Request, response: Response) => {
+    const entitiesJson = await readJson<IProjectConfig>('./src/ExampleConfigs/Entities.json');
+    response.json(entitiesJson.Entities);
 };
