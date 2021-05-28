@@ -1,4 +1,4 @@
-import { ping, getProjects, provideToken, userInfo, getEntities } from './controller/MockController';
+import {ping, getProjects, provideToken, userInfo, getEntities, getProject} from './controller/MockController';
 
 /**
  * All application routes.
@@ -27,6 +27,11 @@ const AppRoutes = [
         path: '/projectConfig',
         method: 'get',
         action: getEntities
+    },
+    {
+        path: '/projectConfig/:id',
+        method: 'get',
+        action: getProject
     }
 ];
 

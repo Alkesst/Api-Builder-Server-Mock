@@ -5,6 +5,7 @@ import * as bodyParser from 'body-parser';
 import AppRoutes from './routes';
 import * as passport from "passport";
 import * as session from 'express-session';
+import {Guid} from "guid-typescript";
 const MockStrategy = require('passport-mock-strategy');
 
 // create express app
@@ -46,5 +47,4 @@ AppRoutes.forEach((route) => {
 
 // run app
 app.listen(4000);
-
 console.log('Express application is up and running on port 4000');

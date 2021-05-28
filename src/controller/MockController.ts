@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { promises as fs } from 'fs';
 import { Projects } from "../Types/projects";
 import {IProjectConfig} from "api-builder-types";
+import {projectConfig} from "../Helpers/ConfigBuilder";
 
 /**
  * Loads all posts from the database.
@@ -21,6 +22,10 @@ export const provideToken = (request: Request, response: Response) => {
 export const getProjects = async (request: Request, response: Response) => {
     const projectsJson = await readJson<Projects>('./src/ExampleConfigs/Projects.json');
     response.json(projectsJson.Projects);
+};
+
+export const getProject = async (request: Request, response: Response) => {
+    response.json(projectConfig);
 };
 
 const readJson = async<T> (filePath: string): Promise<T> => {
