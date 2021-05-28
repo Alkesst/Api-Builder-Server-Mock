@@ -1,0 +1,78 @@
+{
+  "Name": "Project test 1",
+  "Type": "Relational",
+  "Entities": [
+    {
+      "Identifier": "114d356e-59ea-4fbf-9108-c0d495c645c3",
+      "Name": "User",
+      "Relationships": [
+        {
+          "Identifier": "5f057669-a336-48d2-b6f9-5e95559a4868",
+          "LeftSide": {
+            "Entity": "114d356e-59ea-4fbf-9108-c0d495c645c3",
+            "Multiplicity": "Multi",
+            "AttributeForeignKey": "9a5883e9-6d5d-4a49-86d8-a77de417af38"
+          },
+          "RightSide": {
+            "Identifier": "dbbe8b4d-5ed4-4e1a-83ec-8083a9150dc7",
+            "Entity": "d78f1424-53ca-4503-b17f-5505623124cb",
+            "Multiplicity": "One",
+            "AttributePrimaryKey": "584e72fb-ff2f-4d19-9ef5-efa78e0af3d6"
+          }
+        }
+      ],
+        "Attributes": [
+          {
+            "Identifier": "9a5883e9-6d5d-4a49-86d8-a77de417af38",
+            "Name": "GroupFk",
+            "Type": "String",
+            "isNullable": "False",
+            "Precision": ""
+          }
+        ],
+      "Coordinates": {
+        "X": "0",
+        "Y": "0"
+      },
+      "Constraints": [
+
+      ]
+    },
+    {
+      "Identifier": "d78f1424-53ca-4503-b17f-5505623124cb",
+      "Name": "Group",
+      "Relationships": [
+        {
+          "Identifier": "5f057669-a336-48d2-b6f9-5e95559a4868",
+          "LeftSide": {
+            "Entity": "d78f1424-53ca-4503-b17f-5505623124cb",
+            "Multiplicity": "Multi",
+            "AttributeForeignKey": "9a5883e9-6d5d-4a49-86d8-a77de417af38"
+          },
+          "RightSide": {
+            "Identifier": "dbbe8b4d-5ed4-4e1a-83ec-8083a9150dc7",
+            "Entity": "114d356e-59ea-4fbf-9108-c0d495c645c3",
+            "Multiplicity": "One",
+            "AttributePrimaryKey": "584e72fb-ff2f-4d19-9ef5-efa78e0af3d6"
+          }
+        }
+      ],
+      "Attributes": [
+        {
+          "Identifier": "584e72fb-ff2f-4d19-9ef5-efa78e0af3d6",
+          "Name": "GroupPk",
+          "Type": "String",
+          "isNullable": "False",
+          "Precision": ""
+        }
+      ],
+      "Coordinates": {
+        "X": "150",
+        "Y": "150"
+      },
+      "Constraints": [
+
+      ]
+    }
+  ]
+}

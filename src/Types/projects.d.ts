@@ -1,5 +1,9 @@
-import { Project } from "api-builder-types";
+import {IEntity, IProject} from "api-builder-types";
 
 export interface Projects {
-    Projects: Project[];
+    Projects: IProject[];
+}
+
+export interface Entities {
+    Entities: IEntity[]
 }
