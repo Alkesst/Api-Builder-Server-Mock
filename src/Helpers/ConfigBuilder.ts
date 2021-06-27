@@ -18,46 +18,47 @@ const createRelationship = (attribute: string, entity: string): IRelationship =>
     }
 });
 
-const createAttribute = (nullable: boolean, type: AttributeType, name: string): IAttribute => ({
-    Identifier: guidCreate(),
-    IsNullable: nullable,
+const createAttribute = (nullable: boolean, type: AttributeType, name: string, identifier?: string): IAttribute => ({
+    Identifier: identifier || guidCreate(),
+    IsMandatory: nullable,
     Type: type,
     Name: name
 });
 
-const createEntity = (id: string, name: string, coordinates: ICoordinates, attributes: IAttribute[], relations: IRelationship[]): IEntity => ({
+const createEntity = (id: string, name: string, coordinates: ICoordinates, attributes: IAttribute[], relations: IRelationship[], attributePK: string): IEntity => ({
     Identifier: id,
     Coordinates: coordinates,
     Constraints: [],
     Attributes: attributes,
     Name: name,
-    Relationships: relations
+    Relationships: relations,
+    PK: [attributePK]
 });
 
 const userAttributes = [
-    createAttribute(false, AttributeType.String, 'Id'),
+    createAttribute(true, AttributeType.String, 'Id'),
     createAttribute(false, AttributeType.String, 'name'),
     createAttribute(false, AttributeType.Date, 'birthDate'),
     createAttribute(false, AttributeType.String, 'email'),
-    createAttribute(false, AttributeType.String, 'groupId'),
+    createAttribute(true, AttributeType.String, 'groupId'),
 ];
 const groupAttributes = [
-    createAttribute(false, AttributeType.String, 'Id'),
-    createAttribute(true, AttributeType.Date, 'expiringDate'),
+    createAttribute(true, AttributeType.String, 'Id', groupPkAttributeId),
+    createAttribute(false, AttributeType.Date, 'expiringDate'),
     createAttribute(false, AttributeType.String, 'name')
 ];
 const categoryAttributes = [
-    createAttribute(false, AttributeType.String, 'Id'),
+    createAttribute(true, AttributeType.String, 'Id'),
     createAttribute(false, AttributeType.String, 'name'),
-    createAttribute(false, AttributeType.String, 'groupId'),
+    createAttribute(true, AttributeType.String, 'groupId'),
 ];
 const relatedToGroup = [createRelationship(groupPkAttributeId, groupId)];
 
 export const projectConfig: IProjectConfig = {
     Entities: [
-        createEntity(guidCreate(), 'User', {X: 200, Y: 200}, userAttributes, relatedToGroup),
-        createEntity(groupId, 'Group', {X: 600, Y: 600}, groupAttributes, []),
-        createEntity(guidCreate(), 'Category', {X: 600, Y: 1000}, categoryAttributes, relatedToGroup),
+        createEntity(guidCreate(), 'User', {X: 200, Y: 200}, userAttributes, relatedToGroup, userAttributes[0].Identifier),
+        createEntity(groupId, 'Group', {X: 600, Y: 600}, groupAttributes, [], groupAttributes[0].Identifier),
+        createEntity(guidCreate(), 'Category', {X: 600, Y: 1000}, categoryAttributes, relatedToGroup, categoryAttributes[0].Identifier),
     ],
     Identifier: guidCreate(),
     Type: 0
