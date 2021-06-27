@@ -20,7 +20,7 @@ const createRelationship = (attribute: string, entity: string): IRelationship =>
 
 const createAttribute = (nullable: boolean, type: AttributeType, name: string, identifier?: string): IAttribute => ({
     Identifier: identifier || guidCreate(),
-    IsNullable: nullable,
+    IsMandatory: nullable,
     Type: type,
     Name: name
 });
@@ -36,21 +36,21 @@ const createEntity = (id: string, name: string, coordinates: ICoordinates, attri
 });
 
 const userAttributes = [
-    createAttribute(false, AttributeType.String, 'Id'),
-    createAttribute(true, AttributeType.String, 'name'),
-    createAttribute(true, AttributeType.Date, 'birthDate'),
-    createAttribute(true, AttributeType.String, 'email'),
-    createAttribute(false, AttributeType.String, 'groupId'),
+    createAttribute(true, AttributeType.String, 'Id'),
+    createAttribute(false, AttributeType.String, 'name'),
+    createAttribute(false, AttributeType.Date, 'birthDate'),
+    createAttribute(false, AttributeType.String, 'email'),
+    createAttribute(true, AttributeType.String, 'groupId'),
 ];
 const groupAttributes = [
-    createAttribute(false, AttributeType.String, 'Id', groupPkAttributeId),
-    createAttribute(true, AttributeType.Date, 'expiringDate'),
-    createAttribute(true, AttributeType.String, 'name')
+    createAttribute(true, AttributeType.String, 'Id', groupPkAttributeId),
+    createAttribute(false, AttributeType.Date, 'expiringDate'),
+    createAttribute(false, AttributeType.String, 'name')
 ];
 const categoryAttributes = [
-    createAttribute(false, AttributeType.String, 'Id'),
-    createAttribute(true, AttributeType.String, 'name'),
-    createAttribute(false, AttributeType.String, 'groupId'),
+    createAttribute(true, AttributeType.String, 'Id'),
+    createAttribute(false, AttributeType.String, 'name'),
+    createAttribute(true, AttributeType.String, 'groupId'),
 ];
 const relatedToGroup = [createRelationship(groupPkAttributeId, groupId)];
 
