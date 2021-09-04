@@ -51,10 +51,25 @@ export const getEntities = async (request: Request, response: Response) => {
 
 export const deleteEntity = async (request: Request, response: Response) => {
     console.log(`Entity with id ${request.params.id} deleted`);
-    response.end();
+    response.json({});
 }
 
 export const updateEntity = async (request: Request, response: Response) => {
     console.log(`Entity with id ${request.body}, has been updated with the following content: ${JSON.stringify(request.body)}`);
-    response.end();
+    response.json({});
+}
+
+export const saveProjectInfo = async (request: Request, response: Response) => {
+    console.log(`Project with id ${request.body}, has been updated with the following content: ${JSON.stringify(request.body)}`);
+    response.json({});
+}
+
+export const exportProject = async (request: Request, response: Response) => {
+    console.log(`Received request to export a project.`);
+    response.download('./src/ExampleConfigs/Entities.json');
+}
+
+export const createPackage = async (request: Request, response: Response) => {
+    console.log(`Received request to export a project.`);
+    response.download('./src/ExampleConfigs/paqueteVacio.zip');
 }
